@@ -1,0 +1,3 @@
+My AJAX functions are not working, I spent a lot of time trying to figure it out but couldn't come up with a solution.
+For the function adding posts to the table (ajax_on_submit), it creates a new record on the table but the fields are empty. The php script works fine however (if instead of using the ajax function you use action=writepost.php the posts are created correctly). 
+For the function displaying the posts, I could not make it work so I the same code that is in displaypost.php into index.php so you can see that it prints correctly the records. 

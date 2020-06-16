@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spreadsheet</title>
+<style type="text/css">
+  td {
+    padding:3px;
+  }
+</style>
+</head>
+
+<body>
+<table id="table" border="0" cellpadding="0" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Student ID</th>
+      <th>Faculty</th>
+      <th>Major</th>
+      <th>Minor</th>
+      <th>Year</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="tablebody">
+    <tr onclick="highlight()">
+      <td><input type="text" name="name" /></td>
+      <td><input type="text" name="sid" /></td>
+      <td><input type="text" name="faculty" /></td>
+      <td><input type="text" name="major" /></td>
+      <td><input type="text" name="minor" /></td>
+      <td><input type="text" name= "year" /></td>
+      <td>
+        <button onclick="moveUp()">Up</button>
+        <button onclick="moveDown()">Dn</button>
+        <button onclick="deleteRow()">Del</button>
+      </td>
+    </tr>
+    <tr onclick="highlight()">
+      <td><input type="text" name="name" /></td>
+      <td><input type="text" name="sid" /></td>
+      <td><input type="text" name="faculty" /></td>
+      <td><input type="text" name="major" /></td>
+      <td><input type="text" name="minor" /></td>
+      <td><input type="text" name= "year" /></td>
+      <td>
+        <button onclick="moveUp()">Up</button>
+        <button onclick="moveDown()">Dn</button>
+        <button onclick="deleteRow()">Del</button>
+      </td>
+    </tr>
+    <tr onclick="highlight()">
+      <td><input type="text" name="name" /></td>
+      <td><input type="text" name="sid" /></td>
+      <td><input type="text" name="faculty" /></td>
+      <td><input type="text" name="major" /></td>
+      <td><input type="text" name="minor" /></td>
+      <td><input type="text" name= "year" /></td>
+      <td>
+        <button onclick="moveUp()">Up</button>
+        <button onclick="moveDown()">Dn</button>
+        <button onclick="deleteRow()">Del</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button onclick="newRow()">New row</button>
+<script>
+  function highlight() {
+    var table = document.getElementById("table");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++){
+      rows[i].style.backgroundColor = "";
+    }
+    var td = event.target.parentNode;
+    var tr = td.parentNode;
+    tr.style.backgroundColor = "yellow";
+  }
+  function newRow() {
+    var table = document.getElementById("table");
+    var currentIndex = table.rows.length;
+    var currentRow = table.insertRow(-1);
+    currentRow.setAttribute("onclick","highlight()");
+
+    var nameBox = document.createElement("input");
+    nameBox.setAttribute("name","name"+ currentIndex);
+
+    var sidBox = document.createElement("input");
+    sidBox.setAttribute("name","sid"+ currentIndex);
+
+    var facultyBox = document.createElement("input");
+    facultyBox.setAttribute("name","faculty"+ currentIndex);
+
+    var majorBox = document.createElement("input");
+    majorBox.setAttribute("name","major"+ currentIndex);
+
+    var minorBox = document.createElement("input");
+    minorBox.setAttribute("name","minor"+ currentIndex);
+
+    var yearBox = document.createElement("input");
+    yearBox.setAttribute("name","year"+ currentIndex);
+
+    var upButton = document.createElement("button");
+    upButton.innerHTML = "Up";
+    upButton.setAttribute("onclick", "moveUp()");
+
+    var downButton = document.createElement("button");
+    downButton.innerHTML = "Dn";
+    downButton.setAttribute("onclick", "moveDown()");
+
+    var delButton = document.createElement("button");
+    delButton.innerHTML = "Del";
+    delButton.setAttribute("onclick", "deleteRow()");
+
+    var currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(nameBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(sidBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(facultyBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(majorBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(minorBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(yearBox);
+
+    currentCell = currentRow.insertCell(-1);
+    currentCell.appendChild(upButton);
+    currentCell.appendChild(downButton);
+    currentCell.appendChild(delButton); 
+  }
+
+  function deleteRow() {
+    var td = event.target.parentNode;
+    var tr = td.parentNode;
+    tr.parentNode.removeChild(tr);
+  }
+
+  function moveUp(){
+    var table = document.getElementById("tablebody");
+    var td = event.target.parentNode;
+    var tr = td.parentNode;
+    var previous = tr.previousSibling;
+    if(previous){
+      table.insertBefore(tr,previous);
+    }
+  }
+
+  function moveDown(){
+    var table = document.getElementById("tablebody");
+    var td = event.target.parentNode;
+    var tr = td.parentNode;
+    var next = tr.nextSibling;
+    if(next){
+      next.parentNode.insertBefore(tr, next.nextSibling);
+    }
+  }
+
+</script>
+</body>
+
+</html>

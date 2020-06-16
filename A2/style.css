@@ -1,0 +1,76 @@
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {font-family:"Montserrat";} 
+article {font-family: "Courier New"}
+section {padding-top:50px;}
+span {background-color: #eea29a;color: white;}
+footer {text-align: center;}
+table {width: 25%;}
+
+ul {
+	position: fixed;
+	top: 0;
+	width:100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #c94c4c; 
+}
+
+li {float: left;}
+
+li a{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover,input[type=submit]:hover {background-color: #eea29a;}
+
+input[type=submit] {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #c94c4c;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 22px;
+	color: black;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	max-width: 300px;
+	margin: auto;
+	padding-top: 50px;
+	text-align: center;
+}
+
+.text {padding-top: 20px;}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+
+
+
+
